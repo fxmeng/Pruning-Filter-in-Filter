@@ -6,3 +6,4 @@ This is the PyTorch implementation of our NeurIPS 2020 paper "Pruning Filter in 
 2) More arousingly, by applying SP, we find another important property of filters alongside their weight: shape. Start with a random initialized ResNet56, we train and trim the shape of filters and boost the test accuracy from 10.00% to 80.58% on CIFAR-10 without updating the filter weights. The optimal shape of filters are learned by the proposed Filter-Skeleton (FS) in the paper and we believe FS could inspire further research towards the essence of network pruning.
 
 **Related code will be coming soon...**
+![image](BrokenNet_filter.png)
