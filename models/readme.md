@@ -8,7 +8,7 @@ We provide two ways to simply implement the function here：
 
 $$
 \begin{array}{l}
-def~~Stripe\_CUDA\_Kernel(W,X,I,Y):\\
+Stripe\_CUDA\_Kernel(W,X,I,Y):\\
 ~~~~idx = threadIdx.x + blockDim.x * blockIdx.x\\
 ~~~~b=idx/(N^{'}\times H\times W)\\
 ~~~~n=idx/(H\times W)\%N^{'}\\
@@ -25,10 +25,12 @@ Y\in \mathbb{R}^{N\times H\times W}=0\\
 Stripe\_CUDA\_Kernel<<<BLOCKS,THREADS>>>(W,X,I,Y)\\
 \end{array}
 $$
+
 or
+
 $$
 \begin{array}{l}
-def~~Stripe\_CUDA\_Kernel(W,X,I,Y):\\
+Stripe\_CUDA\_Kernel(W,X,I,Y):\\
 ~~~~idx = threadIdx.x + blockDim.x * blockIdx.x\\
 ~~~~b=idx/(N^{'}\times H\times W)\\
 ~~~~n=idx/(H\times W)\%N^{'}\\
