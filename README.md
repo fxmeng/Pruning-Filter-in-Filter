@@ -17,6 +17,8 @@ pytorch1.4.0
 
 torchvision0.5.0
 
+!!!!!!!!!!!!!!!!!!Please read models/readme.md for more informations about accelerated deployment.!!!!!!!!!!!!!!!
+
 ## Baseline
 
 ```shell
