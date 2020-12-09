@@ -8,7 +8,7 @@ import torch.nn as nn
 
 
 def print_model_param_nums(model=None):
-    total = sum([param.nelement() if param.requires_grad else 0 for param in model.parameters()])
+    total = sum([param.nelement() for param in model.parameters()])
     print('  + Number of params: %.2fM' % (total / 1e6))
 
 
