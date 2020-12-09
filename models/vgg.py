@@ -47,16 +47,13 @@ class VGG(nn.Module):
                 m.update_mask(out_mask)
 
     def prune(self, threshold):
-        mask_num = 0
         in_mask = torch.ones(3) > 0
         for key, m in self.named_modules():
             if isinstance(m, FilterStripe):
                 m.prune_in(in_mask)
                 in_mask = m.prune_out(threshold)
-                mask_num += m.FilterSkeleton.nelement()
                 m._break(threshold)
             if isinstance(m, BatchNorm):
                 m.prune(in_mask)
             if isinstance(m, Linear):
                 m.prune_in(in_mask)
-        return mask_num
