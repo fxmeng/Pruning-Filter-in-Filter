@@ -18,6 +18,7 @@ pytorch1.4.0
 torchvision0.5.0
 
 !!!!!!!!!!!!!!!!!!Please read models/readme.md for more informations about accelerated deployment.!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!The subscript of I in Formula 6 in the paper should be changed from n,h,w to n,i,j.!!!!!!!!!!!!!!!
 
 ## Baseline
 
@@ -66,12 +67,6 @@ python main.py --arch ResNet56 --data_path ../data --sr 0.00001 --threshold 0.01
 > |          | DMCP                     | 42.81                  | 0.56                  | ---                     |
 > |          | **Ours($\alpha =5e-6$)** | **50.48**              | **-0.23**             | **-0.22**               |
 > |          | **Ours($\alpha =2e-5$)** | **54.58**              | **0.17**              | **0.04**                |
-###  notice
-
-Formula(6) in the paper should be change to：
-$$
-g(I) = \sum_{l=1}^{L} g(I^{l}) = \sum_{l=1}^{L} (  \sum_{n=1}^{N} \sum_{i=1}^{K} \sum_{j=1}^{K} |I_{n,i,j}^{l}| )
-$$
 
 ## Citation
 
