@@ -121,7 +121,7 @@ np.savetxt(os.path.join(args.save, 'train_record.txt'), history_score, fmt='%10.
 ##############pruning filter in filter without finetuning#################
 if args.sr and args.threshold:
     model.load_state_dict(torch.load(os.path.join(args.save, 'best.pth.tar')))
-    print(model.prune(args.threshold))
+    model.prune(args.threshold)
     test()
     print(model)
     torch.save(model.state_dict(), os.path.join(args.save, 'pruned.pth.tar'))
