@@ -18,6 +18,7 @@ pytorch1.4.0
 torchvision0.5.0
 
 !!!!!!!!!!!!!!!!!!Please read models/readme.md for more informations about accelerated deployment.!!!!!!!!!!!!!!!
+
 !!!!!!!!!!!!!!!!!!The subscript of I in Formula 6 in the paper should be changed from n,h,w to n,i,j.!!!!!!!!!!!!!!!
 
 ## Baseline
