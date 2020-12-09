@@ -70,7 +70,6 @@ class ResNet56(nn.Module):
                 m.update_mask(out_mask)
 
     def prune(self, threshold):
-        mask_num = 0
         for key, m in self.named_modules():
             if key.startswith('conv'):
                 m._break(threshold)
@@ -80,6 +79,3 @@ class ResNet56(nn.Module):
                 m.conv2.prune_in(out_mask)
                 m.conv1._break(threshold)
                 m.conv2._break(threshold)
-            if isinstance(m, FilterStripe):
-                mask_num += m.FilterSkeleton.nelement()
-        return mask_num
