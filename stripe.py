@@ -17,7 +17,7 @@ class FilterStripe(nn.Module):
         
     def forward(self, input):
         b, c, h, w = input.shape
-        h = w = int((h+2*self.padding-self.kernel_size+1) // self.stride)
+        h = w = int((h+2*self.padding-self.kernel_size) // self.stride+1)
         x = F.unfold(input, kernel_size=self.kernel_size, padding=self.padding, stride=self.stride)
         x = x.view(b, c, self.kernel_size * self.kernel_size, h, w).permute(0, 2, 1, 3, 4).reshape(b, c * self.kernel_size * self.kernel_size, h, w)
         x = F.conv2d(x, self.weight, groups=self.kernel_size * self.kernel_size)
