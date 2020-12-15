@@ -5,24 +5,24 @@ import torch.nn.functional as F
 import numpy as np
 
 class FilterStripe(nn.Module):
-    def __init__(self, in_channels, out_channels, kernel_size=3, stride=1):
+    def __init__(self, in_channels, out_channels, kernel_size=3, padding=1, stride=1):
         super(FilterStripe, self).__init__()
         self.in_channels = in_channels
         self.out_channels = out_channels
         self.kernel_size = kernel_size
         self.stride = stride
-        self.padding = kernel_size // 2
+        self.padding = padding
         self.weight = nn.Parameter(torch.ones(self.kernel_size*self.kernel_size*self.out_channels, self.in_channels,1,1), requires_grad=True)
         nn.init.kaiming_uniform_(self.weight, a=math.sqrt(5))
         
     def forward(self, input):
         b, c, h, w = input.shape
-        h = w = int(np.ceil(h / self.stride)) - 2*(self.kernel_size // 2 - self.padding)
+        h = w = int((h+2*self.padding-self.kernel_size+1) // self.stride)
         x = F.unfold(input, kernel_size=self.kernel_size, padding=self.padding, stride=self.stride)
         x = x.view(b, c, self.kernel_size * self.kernel_size, h, w).permute(0, 2, 1, 3, 4).reshape(b, c * self.kernel_size * self.kernel_size, h, w)
         x = F.conv2d(x, self.weight, groups=self.kernel_size * self.kernel_size)
         x = x.view(b, self.kernel_size * self.kernel_size, self.out_channels, h, w)
-        print(x)#One can get stripe wise feature map for analization
+        #print(x)#One can get stripe wise feature map for analization
         return torch.sum(x,dim=1)
     
     def load_standard_conv(self,weight):
