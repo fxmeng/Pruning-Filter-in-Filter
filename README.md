@@ -19,7 +19,7 @@ torchvision0.5.0
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-We are working on accelerate deployment SWP by CUDA, please read CUDA-version branche's readme.md for more details.
+We are working on accelerate deployment SWP by CUDA, please read CUDA-version branche's readme.md or https://zhuanlan.zhihu.com/p/335198317 for more details.
 
 The subscript of I in Formula 6 in camera-ready paper should be changed from n,h,w to n,i,j.(We have fixed this problem in arxiv version)
 
