@@ -78,12 +78,16 @@ python main.py --arch ResNet56 --data_path ../data --sr 0.00001 --threshold 0.01
 If you find this code useful, please cite the following paper:
 
 ```
-@article{Meng2020PruningFI,
-  title={Pruning Filter in Filter},
-  author={Fan-Xu Meng and Hao Cheng and Ke Li and Huixiang Luo and Xiao-wei Guo and G. Lu and Xing Sun},
-  journal={ArXiv},
-  year={2020},
-  volume={abs/2009.14410}
+@inproceedings{NEURIPS2020_ccb1d45f,
+	author = {Meng, Fanxu and Cheng, Hao and Li, Ke and Luo, Huixiang and Guo, Xiaowei and Lu, Guangming and Sun, Xing},
+	booktitle = {Advances in Neural Information Processing Systems},
+	editor = {H. Larochelle and M. Ranzato and R. Hadsell and M. F. Balcan and H. Lin},
+	pages = {17629--17640},
+	publisher = {Curran Associates, Inc.},
+	title = {Pruning Filter in Filter},
+	url = {https://proceedings.neurips.cc/paper/2020/file/ccb1d45fb76f7c5a0bf619f979c6cf36-Paper.pdf},
+	volume = {33},
+	year = {2020}
 }
 ```
 
