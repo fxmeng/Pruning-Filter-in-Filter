@@ -27,8 +27,6 @@ We are working on accelerate deployment SWP by CUDA, please read CUDA-version br
 
 or [欢迎来知乎讨论](https://zhuanlan.zhihu.com/p/335198317) for more details.
 
-The subscript of I in Formula 6 in camera-ready paper should be changed from n,h,w to n,i,j.(We have fixed this problem in arxiv version)
-
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ## Baseline
