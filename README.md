@@ -19,9 +19,9 @@ torchvision0.5.0
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Figure in this paper‘s source file are available!!!（
+Figure in this paper‘s source file are available!!!
 
-If you find this paper/code/PPT are useful, please cite this paper + _ +）
+（If you find this paper/code/PPT are useful, please cite this paper + _ +）
 
 We are working on accelerate deployment SWP by CUDA, please read CUDA-version branche's readme.md, 
 
