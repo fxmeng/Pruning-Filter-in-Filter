@@ -81,9 +81,9 @@ class ResNet56(nn.Module):
                         self.layer2.add_module(key.split('.')[1],m.downsample)
                     elif key.startswith('layer3'):
                         self.layer3.add_module(key.split('.')[1],m.downsample)
-                    else:
-                        out_mask = m.conv1.prune_out(threshold)
-                        m.bn1.prune(out_mask)
-                        m.conv2.prune_in(out_mask)
-                        m.conv1._break(threshold)
-                        m.conv2._break(threshold)
+                else:
+                    out_mask = m.conv1.prune_out(threshold)
+                    m.bn1.prune(out_mask)
+                    m.conv2.prune_in(out_mask)
+                    m.conv1._break(threshold)
+                    m.conv2._break(threshold)
