@@ -37,8 +37,6 @@ class FilterStripe(nn.Conv2d):
 
     def prune_out(self, threshold):
         out_mask = (self.FilterSkeleton.abs() > threshold).sum(dim=(1, 2)) != 0
-        if out_mask.sum() == 0:
-            out_mask[0] = True
         self.weight = Parameter(self.weight[out_mask])
         self.FilterSkeleton = Parameter(self.FilterSkeleton[out_mask], requires_grad=True)
         self.out_channels = out_mask.sum().item()
@@ -47,8 +45,6 @@ class FilterStripe(nn.Conv2d):
     def _break(self, threshold):
         self.weight = Parameter(self.weight * self.FilterSkeleton.unsqueeze(1))
         self.FilterSkeleton = Parameter((self.FilterSkeleton.abs() > threshold), requires_grad=False)
-        if self.FilterSkeleton.sum() == 0:
-            self.FilterSkeleton.data[0][0][0] = True
         self.out_channels = self.FilterSkeleton.sum().item()
         self.BrokenTarget = self.FilterSkeleton.sum(dim=0)
         self.kernel_size = (1, 1)
