@@ -74,8 +74,16 @@ class ResNet56(nn.Module):
             if key.startswith('conv'):
                 m._break(threshold)
             elif isinstance(m, BasicBlock):
-                out_mask = m.conv1.prune_out(threshold)
-                m.bn1.prune(out_mask)
-                m.conv2.prune_in(out_mask)
-                m.conv1._break(threshold)
-                m.conv2._break(threshold)
+                if (m.conv1.FilterSkeleton.data.abs()>threshold).sum()==0 or (m.conv2.FilterSkeleton.data.abs()>threshold).sum()==0:
+                    if key.startswith('layer1'):
+                        self.layer1.add_module(key.split('.')[1],m.downsample)
+                    elif key.startswith('layer2'):
+                        self.layer2.add_module(key.split('.')[1],m.downsample)
+                    elif key.startswith('layer3'):
+                        self.layer3.add_module(key.split('.')[1],m.downsample)
+                    else:
+                        out_mask = m.conv1.prune_out(threshold)
+                        m.bn1.prune(out_mask)
+                        m.conv2.prune_in(out_mask)
+                        m.conv1._break(threshold)
+                        m.conv2._break(threshold)
