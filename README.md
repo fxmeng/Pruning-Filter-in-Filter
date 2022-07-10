@@ -67,7 +67,7 @@ python main.py --arch ResNet56 --data_path ../data --sr 0.00001 --threshold 0.01
 > |          | C-SGD                    | ---                    | 60.8                  | -0.23                   |
 > |          | GBN                      | 66.7                   | 70.3                  | 0.03                    |
 > |          | HRank                    | 68.1                   | 74.1                  | 2.38                    |
-> |          | **Ours**                 | **77.7**               | **75.6**              | **0.12**                |
+> |          | **Ours**                 | **75.6**               | **77.7**              | **0.12**                |
 > | Backbone | Metrics                  | FLOPS(%) $\downarrow$  | Top-1(%) $\downarrow$ | Top-5(%)$\downarrow$    |
 > | ResNet18 | LCCL                     | 35.57                  | 3.43                  | 2.14                    |
 > |          | SFP                      | 42.72                  | 2.66                  | 1.3                     |
